@@ -47,3 +47,12 @@ document.querySelectorAll(".tile").forEach(occurence => {
         console.log(nextTile);
     });
 });
+
+
+// Game might use "Blast used." Player should try to defeat the enemies with the least amount of blasts.
+let enemies = 3;
+for(let i = 0; i < enemies; i++) {
+    // Get a random tile
+    let t = Math.floor(Math.random() * tiles.length);
+    if(tiles[t].innerHTML !== "Enemy") tiles[t].innerHTML = "Enemy";
+}

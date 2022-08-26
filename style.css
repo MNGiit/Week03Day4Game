@@ -1,0 +1,10 @@
+.databoard {
+    border: solid black;
+    border-width: 1px;
+    /* height: auto; */
+    height: 55px;
+    /* height: 7.5vh; */
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}

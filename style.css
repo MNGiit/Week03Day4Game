@@ -8,3 +8,18 @@
     justify-content: space-between;
     padding: 5px;
 }
+
+.gameboard {
+
+}
+
+.row {
+    display: flex;
+}
+
+.tile {
+    border: solid blue;
+    border-width: 1px;
+    height: 50px;
+    width: 50px;
+}

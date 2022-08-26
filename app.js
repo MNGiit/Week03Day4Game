@@ -16,10 +16,11 @@ const setBlast = () => {
 
 document.querySelectorAll(".tile").forEach(occurence => {
     occurence.addEventListener('click', (e) => {
-        console.log("Tile was clicked");
-        console.log(this);
-        console.log(e.path);
+        // console.log("Tile was clicked");
+        // console.log(this);
+        // console.log(e.path);
         console.log(e.target);
+        e.target.style.background = "black";
     });
 });
 

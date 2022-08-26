@@ -17,16 +17,28 @@ document.querySelectorAll(".tile").forEach(occurence => {
 
 // Game might use "Blast used." Player should try to defeat the enemies with the least amount of blasts.
 let enemies = 3;
-for(let i = 0; i < enemies; i++) {
-    // Get a random tile
-    let t = Math.floor(Math.random() * tiles.length);
-    if(tiles[t].innerHTML !== "Enemy") tiles[t].innerHTML = "Enemy";
+
+const setEnemies = () => {
+    for(let i = 0; i < enemies; i++) {
+        let t = Math.floor(Math.random() * tiles.length);
+        if(tiles[t].innerHTML !== "Enemy") tiles[t].innerHTML = "Enemy";
+    }
 }
+
+setEnemies();
+
 // add a way to see if there's an enemy there
 tiles.forEach(occurence => {
     occurence.addEventListener('click', (e) => {
         if(e.target.innerHTML === "Enemy") alert("Found an enemy!");
         else alert("Nothing there.");
+    })
+})
+
+tiles.forEach(occurrence => {
+    occurence.addEventListener('click', (e) => {
+        // console.log(tiles.indexOf(e)); // ERROR
+        console.log(tiles);
     })
 })
 
@@ -48,13 +60,14 @@ const blastCheck = () => {
     //  if tile has something on it
     //      remove that something
     //      add point to score
+    console.log("Blast check");
 }
 
 
 // document.getElementsByClassName("tile").getAttribute("onclick").alert("Test");
 
-console.log(tiles);
-console.log(tiles[0]);
+// console.log(tiles);
+// console.log(tiles[0]);
 // tiles[0].style.background = "black";
 
 

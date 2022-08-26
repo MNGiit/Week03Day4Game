@@ -1,3 +1,4 @@
+let enemies = 3;
 let tiles = document.querySelectorAll(".tile");
 // tiles[0].innerText = "Enemy";
 document.querySelectorAll(".tile").forEach(occurence => {
@@ -5,18 +6,18 @@ document.querySelectorAll(".tile").forEach(occurence => {
         // console.log("Tile was clicked");
         // console.log(this);
         // console.log(e.path);
-        console.log(e.target);
+        // console.log(e.target); // .target is important
         e.target.style.background = "black";
         // e.target.nextSibling.style.background = "red";
-        console.log(e.target.nextSibling);
+        // console.log("Next sibling", e.target.nextSibling);
 
-        let nextTile = tiles.indexOf(e.target);
-        console.log(nextTile);
+        // let nextTile = tiles.indexOf(e.target); // error?
+        // console.log(nextTile);
     });
 });
 
 // Game might use "Blast used." Player should try to defeat the enemies with the least amount of blasts.
-let enemies = 3;
+
 
 const setEnemies = () => {
     for(let i = 0; i < enemies; i++) {
@@ -30,17 +31,17 @@ setEnemies();
 // add a way to see if there's an enemy there
 tiles.forEach(occurence => {
     occurence.addEventListener('click', (e) => {
-        if(e.target.innerHTML === "Enemy") alert("Found an enemy!");
-        else alert("Nothing there.");
+        checkTile(e);
     })
 })
+const checkTile = (e) => {
+    if(e.target.innerHTML === "Enemy") alert("Found an enemy!");
+    else alert("Nothing on this tile.");
+}
 
-tiles.forEach(occurrence => {
-    occurence.addEventListener('click', (e) => {
-        // console.log(tiles.indexOf(e)); // ERROR
-        console.log(tiles);
-    })
-})
+// tiles.forEach(occurence => {
+//     occurence.addEventListener('click', checkTile(e));
+// })
 
 // When player clicks on a tile:
     //  If there's nothing
@@ -48,11 +49,15 @@ tiles.forEach(occurrence => {
     //      Add to Blast counter
     //  If there's an enemy or blast or blast effect
     //      Do nothing or (subtract from score or add to blast counter or both)
-
-
-const setBlast = (e) => {
-    console.log("Hello console!");
-    console.log(this.document);
+const setBlast = () => {
+    // console.log("Hello console! This is", this);
+    console.log(event.currentTarget);
+    console.log("Tiles:", tiles);
+    // console.log("Tile index is:", tiles.indexOf(event.currentTarget)); // doesn't work
+    // console.log("Tile index is:", tiles.findIndex(event.currentTarget)); // also doesn't work
+    console.log("Target:", event.target);
+    
+    // console.log("This target:", this.target); // log shows undefined
     // console.log(e.style.background); // shows up as an error/undefined
 }
 
@@ -70,9 +75,6 @@ const blastCheck = () => {
 // console.log(tiles[0]);
 // tiles[0].style.background = "black";
 
-
-
-
 const countRows = () => {
     return document.getElementsByClassName("row").length;
 }
@@ -81,5 +83,5 @@ const countTiles = () => {
     return document.getElementsByClassName("tile").length;
 }
 
-console.log(countRows());
-console.log(countTiles());
+// console.log(countRows());
+// console.log(countTiles());

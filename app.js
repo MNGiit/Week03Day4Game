@@ -30,13 +30,18 @@ tiles.forEach(occurence => {
     })
 })
 
-const setBlast = () => {
-    //  Start blast on origin/click
-    //  for i = 1; i < blastRange; i++
-    //      if tile is next to it on the right, start blast
-    //      if tile is next to it on the left, start blast
-    //      if tile is above it, start blast
-    //      if tile is below it, start blast
+// When player clicks on a tile:
+    //  If there's nothing
+    //      Add a "Blast"
+    //      Add to Blast counter
+    //  If there's an enemy or blast or blast effect
+    //      Do nothing or (subtract from score or add to blast counter or both)
+
+
+const setBlast = (e) => {
+    console.log("Hello console!");
+    console.log(this.document);
+    // console.log(e.style.background); // shows up as an error/undefined
 }
 
 const blastCheck = () => {

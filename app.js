@@ -1,13 +1,34 @@
-const countRows = () => {
-    return document.getElementsByClassName("row").length;
-}
+let tiles = document.querySelectorAll(".tile");
+// tiles[0].innerText = "Enemy";
+document.querySelectorAll(".tile").forEach(occurence => {
+    occurence.addEventListener('click', (e) => {
+        // console.log("Tile was clicked");
+        // console.log(this);
+        // console.log(e.path);
+        console.log(e.target);
+        e.target.style.background = "black";
+        // e.target.nextSibling.style.background = "red";
+        console.log(e.target.nextSibling);
 
-const countTiles = () => {
-    return document.getElementsByClassName("tile").length;
-}
+        let nextTile = tiles.indexOf(e.target);
+        console.log(nextTile);
+    });
+});
 
-console.log(countRows());
-console.log(countTiles());
+// Game might use "Blast used." Player should try to defeat the enemies with the least amount of blasts.
+let enemies = 3;
+for(let i = 0; i < enemies; i++) {
+    // Get a random tile
+    let t = Math.floor(Math.random() * tiles.length);
+    if(tiles[t].innerHTML !== "Enemy") tiles[t].innerHTML = "Enemy";
+}
+// add a way to see if there's an enemy there
+tiles.forEach(occurence => {
+    occurence.addEventListener('click', (e) => {
+        if(e.target.innerHTML === "Enemy") alert("Found an enemy!");
+        else alert("Nothing there.");
+    })
+})
 
 const setBlast = () => {
     //  Start blast on origin/click
@@ -27,32 +48,20 @@ const blastCheck = () => {
 
 // document.getElementsByClassName("tile").getAttribute("onclick").alert("Test");
 
-let tiles = document.querySelectorAll(".tile");
 console.log(tiles);
 console.log(tiles[0]);
 // tiles[0].style.background = "black";
-tiles[0].innerText = "Enemy";
-
-document.querySelectorAll(".tile").forEach(occurence => {
-    occurence.addEventListener('click', (e) => {
-        // console.log("Tile was clicked");
-        // console.log(this);
-        // console.log(e.path);
-        console.log(e.target);
-        e.target.style.background = "black";
-        // e.target.nextSibling.style.background = "red";
-        console.log(e.target.nextSibling);
-
-        let nextTile = tiles.indexOf(e.target);
-        console.log(nextTile);
-    });
-});
 
 
-// Game might use "Blast used." Player should try to defeat the enemies with the least amount of blasts.
-let enemies = 3;
-for(let i = 0; i < enemies; i++) {
-    // Get a random tile
-    let t = Math.floor(Math.random() * tiles.length);
-    if(tiles[t].innerHTML !== "Enemy") tiles[t].innerHTML = "Enemy";
+
+
+const countRows = () => {
+    return document.getElementsByClassName("row").length;
 }
+
+const countTiles = () => {
+    return document.getElementsByClassName("tile").length;
+}
+
+console.log(countRows());
+console.log(countTiles());

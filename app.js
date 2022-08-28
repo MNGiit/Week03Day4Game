@@ -18,12 +18,15 @@ document.querySelectorAll(".tile").forEach(occurence => {
 
 // Game might use "Blast used." Player should try to defeat the enemies with the least amount of blasts.
 
-
 const setEnemies = () => {
     for(let i = 0; i < enemies; i++) {
         let t = Math.floor(Math.random() * tiles.length);
         if(tiles[t].innerHTML !== "Enemy") tiles[t].innerHTML = "Enemy";
     }
+}
+
+const setBarriers = () => {
+    console.log("setBarriers() should put a barrier on the tile");
 }
 
 setEnemies();
@@ -57,8 +60,7 @@ const setBlast = () => {
     console.log("Tiles:", tiles);
     // console.log("Tile index is:", tiles.indexOf(event.currentTarget)); // doesn't work
     // console.log("Tile index is:", tiles.findIndex(event.currentTarget)); // also doesn't work
-    console.log("Target:", event.target);
-    
+    console.log("Target:", event.target);    
     // console.log("This target:", this.target); // log shows undefined
     // console.log(e.style.background); // shows up as an error/undefined
 }
@@ -69,7 +71,6 @@ const blastCheck = () => {
     //      add point to score
     console.log("Blast check");
 }
-
 
 // document.getElementsByClassName("tile").getAttribute("onclick").alert("Test");
 
@@ -84,6 +85,3 @@ const countRows = () => {
 const countTiles = () => {
     return document.getElementsByClassName("tile").length;
 }
-
-// console.log(countRows());
-// console.log(countTiles());

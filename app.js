@@ -17,6 +17,7 @@ document.querySelectorAll(".tile").forEach(occurence => {
         // console.log(e.target); // .target is important
         e.target.style.background = "black";
         score++;
+        addBlastCount();
         updateScoreDisplay();
         updateBlastCountDisplay();
         // e.target.nextSibling.style.background = "red";
@@ -108,7 +109,3 @@ const countRows = () => {
 const countTiles = () => {
     return document.getElementsByClassName("tile").length;
 }
-
-console.log(blastCount);
-addBlastCount();
-console.log(blastCount);

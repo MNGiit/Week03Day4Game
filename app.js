@@ -17,12 +17,20 @@ document.querySelectorAll(".tile").forEach(occurence => {
         // console.log(e.target); // .target is important
 
         // add a way to see if there's an enemy there
-        checkTile(e);
+        // checkTile(e);
 
         if(e.target.innerHTML !== "Enemy") {
             e.target.style.background = "black";
             addBlastCount();
             updateBlastCountDisplay();
+            // call method that will start blast effect
+            // setTimeout(function, milliseconds)
+            // console.time();
+            // console.log("Time started");
+            // setTimeout(activateBlast(), 100000);
+            // console.timeEnd();
+            // console.log("Time ended");
+            // setBlast(); // this is already in onclick!
         }
         // e.target.style.background = "black";
         
@@ -69,13 +77,34 @@ const checkTile = (e) => {
     //      Do nothing or (subtract from score or add to blast counter or both)
 const setBlast = () => {
     // console.log("Hello console! This is", this);
-    console.log(event.currentTarget);
-    console.log("Tiles:", tiles);
+    
+    // console.log(event.currentTarget);
+    // console.log("Tiles:", tiles);
+    
     // console.log("Tile index is:", tiles.indexOf(event.currentTarget)); // doesn't work
     // console.log("Tile index is:", tiles.findIndex(event.currentTarget)); // also doesn't work
-    console.log("Target:", event.target);    
+    
+    // console.log("Target:", event.target);    
+    
     // console.log("This target:", this.target); // log shows undefined
     // console.log(e.style.background); // shows up as an error/undefined
+    console.time();
+    // setTimeout(activateBlast(), 5000); // doesn't work, it would immediately call method
+    // activateBlast();
+    // this way works
+    
+    setTimeout(function() {
+        // console.log("Hello blast!");
+        activateBlast();
+    }, 5000);
+    
+    activateBlast();
+    console.timeEnd();
+}
+
+const activateBlast = () => {
+
+    console.log("Hello blast!");
 }
 
 const blastCheck = () => {

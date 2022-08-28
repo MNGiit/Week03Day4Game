@@ -1,0 +1,84 @@
+Index is loaded
+Get all the tiles
+setEnemies() on some of the tiles
+setBarriers() on some of the tiles
+
+setBlast()
+plantBlast() if tile is empty
+blastCont++
+
+plantBlast()
+visually show Blast on tile
+explosion occurs after some time: setTimeout(function(), time)
+
+explosionBlast()
+spawnExplosion() on origin
+spawnExplosion() above origin, if possible, to maximum range
+spawnExplosion() below origin, if possible, to maximum range
+spawnExplosion() left origin, if possible, to maximum range
+spawnExplosion() right origin, if possible, to maximum range
+
+spawnExplosion()
+visually show Explosion on tile
+visual of Enemy should be gone if there's an enemy on that tile
+playerScore++ if there's an enemy on that tile
+
+01 02 03 04 05 06 07 08
+
+00 01 02 03 04 05 06 07
+08 09 10 11 12 13 14 15
+16 17 18 19 20 21 22 23
+24 25 26 27 28 29 30 31
+32 33 34 35 36 37 38 39
+40 41 42 43 44 45 46 47
+48 49 50 51 52 53 54 55
+56 57 58 59 60 61 62 63
+64 65 66 67 68 69 70 71
+72 73 74 75 76 77 78 79
+
+plantBlast() on tile 27, range is 1
+spawnExplosion() on tile 27, origin
+spawnExplosion() on tile 28, right, 27 + 1
+spawnExplosion() on tile 26, left, 27 - 1
+spawnExplosion() on tile 19, up, 27 - 8
+spawnExplosion() on tile 35, down, 27 + 8
+
+plantBlast() on tile 27, range is 3
+spawnExplosion() on tile 27, origin
+spawnExplosion() on tile 28, right, 27 + 1
+spawnExplosion() on tile 29, right, 27 + 2
+spawnExplosion() on tile 30, right, 27 + 3
+spawnExplosion() on tile 26, left, 27 - 1
+spawnExplosion() on tile 25, left, 27 - 2
+spawnExplosion() on tile 24, left, 27 - 3
+spawnExplosion() on tile 19, up, 27 - 8
+spawnExplosion() on tile 11, up, 27 - (8*2)
+spawnExplosion() on tile 03, up, 27 - (8*3)
+spawnExplosion() on tile 35, down, 27 + 8
+spawnExplosion() on tile 43, down, 27 + (8*2)
+spawnExplosion() on tile 51, down, 27 + (8*3)
+
+How to check to allow spawnExplosion()?
+Origin: Check occurs prior to plantBlast()
+Right: Add, and check array. If origin+add exists in the same row, it should work
+Left: Subtract, and check array. If origin-subtract exists in the same row, it should work 
+Up: Add row length, and check array. If tile exists, it should work
+Down: Subtract row length, and check array. If tile exists, it should work
+
+rowCheck()
+if tile > 0
+    if tile < 08
+        then it is row 0
+    else if tile < 16
+        then it is row 1
+    else if tile < 24
+        then it is row 2
+    else if tile < 32
+        then it is row 3
+    ...
+    else if tile < 80
+        then it is row 9
+    else
+        tile number is greater than tiles.length, and doesn't exist
+else
+    tile number is less than 0, and doesn't exist

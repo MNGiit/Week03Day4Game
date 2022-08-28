@@ -32,6 +32,8 @@ setEnemies();
 tiles.forEach(occurence => {
     occurence.addEventListener('click', (e) => {
         checkTile(e);
+        // console.log("Tab index:", tiles.HTMLElement.tabIndex); // doesn't work
+       //  console.log("Tiles methods:", tiles.methodName()) // doesn't work
     })
 })
 const checkTile = (e) => {

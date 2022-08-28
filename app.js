@@ -1,8 +1,8 @@
 let score = 0;
-let scoreDisplay = document.querySelector(".scoreContainer p");
+let scoreDisplay = document.querySelector(".scoreContainer p"); // .scoreContainer is the class, p is the element tag
 let blastRange = 1;
 let blastCount = 0;
-scoreDisplay.innerHTML = "Testing";
+
 let enemies = 3;
 let tiles = document.querySelectorAll(".tile");
 // tiles[0].innerText = "Enemy";
@@ -14,7 +14,7 @@ document.querySelectorAll(".tile").forEach(occurence => {
         // console.log(e.target); // .target is important
         e.target.style.background = "black";
         score++;
-
+        updateScoreDisplay();
         // e.target.nextSibling.style.background = "red";
         // console.log("Next sibling", e.target.nextSibling);
 
@@ -84,6 +84,10 @@ const blastCheck = () => {
 // console.log(tiles);
 // console.log(tiles[0]);
 // tiles[0].style.background = "black";
+
+const updateScoreDisplay = () => {
+    scoreDisplay.innerHTML = score;
+}
 
 const addBlastCount = () => {
     blastCount++;

@@ -15,11 +15,18 @@ document.querySelectorAll(".tile").forEach(occurence => {
         // console.log(this);
         // console.log(e.path);
         // console.log(e.target); // .target is important
-        e.target.style.background = "black";
-        score++;
-        addBlastCount();
-        updateScoreDisplay();
-        updateBlastCountDisplay();
+
+
+        if(e.target.innerHTML !== "Enemy") {
+            e.target.style.background = "black";
+            addBlastCount();
+            updateBlastCountDisplay();
+        }
+        // e.target.style.background = "black";
+        
+        // score++;
+        // updateScoreDisplay();
+        
         // e.target.nextSibling.style.background = "red";
         // console.log("Next sibling", e.target.nextSibling);
 

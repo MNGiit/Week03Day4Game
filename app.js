@@ -81,6 +81,10 @@ const blastCheck = () => {
 // console.log(tiles[0]);
 // tiles[0].style.background = "black";
 
+const addBlastCount = () => {
+    blastCount++;
+}
+
 const countRows = () => {
     return document.getElementsByClassName("row").length;
 }
@@ -88,3 +92,7 @@ const countRows = () => {
 const countTiles = () => {
     return document.getElementsByClassName("tile").length;
 }
+
+console.log(blastCount);
+addBlastCount();
+console.log(blastCount);

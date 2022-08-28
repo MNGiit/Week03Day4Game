@@ -1,6 +1,8 @@
+let score = 0;
+let scoreDisplay = document.querySelector(".scoreContainer p");
 let blastRange = 1;
 let blastCount = 0;
-
+scoreDisplay.innerHTML = "Testing";
 let enemies = 3;
 let tiles = document.querySelectorAll(".tile");
 // tiles[0].innerText = "Enemy";
@@ -11,6 +13,8 @@ document.querySelectorAll(".tile").forEach(occurence => {
         // console.log(e.path);
         // console.log(e.target); // .target is important
         e.target.style.background = "black";
+        score++;
+
         // e.target.nextSibling.style.background = "red";
         // console.log("Next sibling", e.target.nextSibling);
 

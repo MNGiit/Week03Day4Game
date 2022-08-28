@@ -84,9 +84,15 @@ const setBlast = () => {
     // console.log("Tile index is:", tiles.indexOf(event.currentTarget)); // doesn't work
     // console.log("Tile index is:", tiles.findIndex(event.currentTarget)); // also doesn't work
     
-    // console.log("Target:", event.target);    
-    
-    // console.log("This target:", this.target); // log shows undefined
+    console.log("Target:", event.target);
+    console.log("This is:", this);
+    console.log("This event is:", this.event);
+    console.log("This Event is:", this.Event);
+    // console.log("This PointerEvent is:", this.Event.PointerEvent);    // doesn't work, PointerEvent is not defined
+    // console.log(Target); // doesn't work, Target is not defined
+    // console.log(target); // doesn't work, target is not defined
+
+
     // console.log(e.style.background); // shows up as an error/undefined
     // console.time();
     // setTimeout(activateBlast(), 5000); // doesn't work, it would immediately call method

@@ -16,6 +16,8 @@ document.querySelectorAll(".tile").forEach(occurence => {
         // console.log(e.path);
         // console.log(e.target); // .target is important
 
+        // add a way to see if there's an enemy there
+        checkTile(e);
 
         if(e.target.innerHTML !== "Enemy") {
             e.target.style.background = "black";
@@ -50,14 +52,6 @@ const setBarriers = () => {
 
 setEnemies();
 
-// add a way to see if there's an enemy there
-tiles.forEach(occurence => {
-    occurence.addEventListener('click', (e) => {
-        checkTile(e);
-        // console.log("Tab index:", tiles.HTMLElement.tabIndex); // doesn't work
-       //  console.log("Tiles methods:", tiles.methodName()) // doesn't work
-    })
-})
 const checkTile = (e) => {
     if(e.target.innerHTML === "Enemy") alert("Found an enemy!");
     else alert("Nothing on this tile.");

@@ -1,7 +1,10 @@
 let score = 0;
 let scoreDisplay = document.querySelector(".scoreContainer p"); // .scoreContainer is the class, p is the element tag
+
 let blastRange = 1;
 let blastCount = 0;
+let blastCountDisplay = document.querySelector(".blastCountContainer p"); // .blastCountContainer is the class, p is the element tag
+
 
 let enemies = 3;
 let tiles = document.querySelectorAll(".tile");
@@ -15,6 +18,8 @@ document.querySelectorAll(".tile").forEach(occurence => {
         e.target.style.background = "black";
         score++;
         updateScoreDisplay();
+        blastCount++;
+        blastCountDisplay.innerHTML = blastCount;
         // e.target.nextSibling.style.background = "red";
         // console.log("Next sibling", e.target.nextSibling);
 

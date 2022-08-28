@@ -18,8 +18,7 @@ document.querySelectorAll(".tile").forEach(occurence => {
         e.target.style.background = "black";
         score++;
         updateScoreDisplay();
-        blastCount++;
-        blastCountDisplay.innerHTML = blastCount;
+        updateBlastCountDisplay();
         // e.target.nextSibling.style.background = "red";
         // console.log("Next sibling", e.target.nextSibling);
 
@@ -92,6 +91,10 @@ const blastCheck = () => {
 
 const updateScoreDisplay = () => {
     scoreDisplay.innerHTML = score;
+}
+
+const updateBlastCountDisplay = () => {
+    blastCountDisplay.innerHTML = blastCount;
 }
 
 const addBlastCount = () => {

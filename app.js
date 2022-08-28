@@ -1,3 +1,6 @@
+let blastRange = 1;
+let blastCount = 0;
+
 let enemies = 3;
 let tiles = document.querySelectorAll(".tile");
 // tiles[0].innerText = "Enemy";

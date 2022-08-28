@@ -88,23 +88,27 @@ const setBlast = () => {
     
     // console.log("This target:", this.target); // log shows undefined
     // console.log(e.style.background); // shows up as an error/undefined
-    console.time();
+    // console.time();
     // setTimeout(activateBlast(), 5000); // doesn't work, it would immediately call method
     // activateBlast();
     // this way works
-    
+    /*
     setTimeout(function() {
         // console.log("Hello blast!");
         activateBlast();
     }, 5000);
-    
+    */
     activateBlast();
-    console.timeEnd();
+    // console.timeEnd();
 }
 
 const activateBlast = () => {
-
-    console.log("Hello blast!");
+    // console.time();
+    setTimeout(function() {
+        console.log("Hello blast!");
+        // console.timeEnd();
+    }, 2500)
+    // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()
 }
 
 const blastCheck = () => {

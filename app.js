@@ -52,6 +52,7 @@ const checkTileForEnemy = (t) => {
         score++;
         updateScoreDisplay();
         t.innerHTML = "";
+        checkWin();
     }
 }
 

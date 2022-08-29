@@ -8,6 +8,9 @@ let blastCountDisplay = document.querySelector(".blastCountContainer p"); // .bl
 let barriers = 20;
 let enemies = 3;
 let tiles = document.querySelectorAll(".tile");
+let rows = document.querySelectorAll(".row");
+
+console.log(rows);
 
 document.querySelectorAll(".tile").forEach(occurence => {
     occurence.addEventListener('click', (e) => {
@@ -99,18 +102,26 @@ const activateBlast = () => {
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex - tilesPerRow;
             if(newTileIndex > 0) tiles[newTileIndex].style.background = "orange";
-            console.log("tileIndex:", tileIndex);
-            console.log("newTileIndex:", newTileIndex);
+            // console.log("tileIndex:", tileIndex);
+            // console.log("newTileIndex:", newTileIndex);
         }
 
         // down
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex + tilesPerRow;
             if(newTileIndex < tiles.length) tiles[newTileIndex].style.background = "orange";
-            console.log("tileIndex:", tileIndex);
-            console.log("newTileIndex:", newTileIndex);
+            // console.log("tileIndex:", tileIndex);
+            // console.log("newTileIndex:", newTileIndex);
         }
 
+        // right
+        for(let i = 1; i <= blastRange; i++) {
+            let newTileIndex = tileIndex + i;
+            console.log("newTileIndex:", tiles[newTileIndex]);
+            // let tileRow = document.querySelector(tiles[newTileIndex]); // doesn't work
+            // console.log(tileRow); //
+            console.log(tiles);
+        }
         
 
         for(let i = 1; i < blastRange; i++) {

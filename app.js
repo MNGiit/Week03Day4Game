@@ -10,9 +10,6 @@ let enemies = 3;
 let tiles = document.querySelectorAll(".tile");
 let rows = document.querySelectorAll(".row");
 
-console.log(rows);
-console.log(tiles[0].parentNode);
-
 document.querySelectorAll(".tile").forEach(occurence => {
     occurence.addEventListener('click', (e) => {
         // console.log(e.target); // .target is important
@@ -103,40 +100,24 @@ const activateBlast = () => {
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex - tilesPerRow;
             if(newTileIndex > 0) tiles[newTileIndex].style.background = "orange";
-            // console.log("tileIndex:", tileIndex);
-            // console.log("newTileIndex:", newTileIndex);
         }
 
         // down
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex + tilesPerRow;
             if(newTileIndex < tiles.length) tiles[newTileIndex].style.background = "orange";
-            // console.log("tileIndex:", tileIndex);
-            // console.log("newTileIndex:", newTileIndex);
         }
 
         // right
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex + i;
             if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) tiles[newTileIndex].style.background = "orange";
-            // console.log("newTileIndex:", tiles[newTileIndex]);
-            // let tileRow = document.querySelector(tiles[newTileIndex]); // doesn't work
-            // console.log(tileRow); //
-            // console.log(tiles);
         }
 
         // left
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex - i;
             if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) tiles[newTileIndex].style.background = "orange";
-        }
-
-        for(let i = 1; i < blastRange; i++) {
-            if(Math.floor((tileIndex+1)/8) === Math.floor((tileIndex+1+i)/8)) {
-                console.log("tileIndex + 1:", Math.floor((tileIndex+1)));
-                console.log("i:", i);
-                console.log("Can continue effect");
-            }
         }
     }, 50)
     // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()
@@ -158,6 +139,7 @@ const countTiles = () => {return document.getElementsByClassName("tile").length;
 
 /*
 tiles[0].style.background = "black"; // one way to change the style of something in an array
+console.log(tiles[0].parentNode); // it's possible to get parentNode like this
 document.getElementsByClassName("tile").getAttribute("onclick").alert("Test");
     console.log(event.currentTarget); // inside setBlast()
     console.log("Target:", event.target); // inside setBlast()

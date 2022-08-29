@@ -123,9 +123,15 @@ const activateBlast = () => {
         }
 
         // left
+        // for(let i = 1; i <= blastRange; i++) {
+        //     let newTileIndex = tileIndex - i;
+        //     if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
+        // }
+        // left
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex - i;
-            if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
+            if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
+            else if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
         }
     }, 50)
     // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()

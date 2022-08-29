@@ -59,6 +59,7 @@ const checkTileForEnemy = (t) => {
     if(t.innerHTML === "Enemy") {
         score++;
         updateScoreDisplay();
+        t.innerHTML = "";
     }
 }
 

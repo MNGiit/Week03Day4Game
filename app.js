@@ -1,5 +1,6 @@
 let score = 0;
 let scoreDisplay = document.querySelector(".scoreContainer p"); // .scoreContainer is the class, p is the element tag
+let win = false;
 
 let blastRange = 2;
 let blastCount = 0;
@@ -142,6 +143,12 @@ const blastEffect = (t) => {
         r.style.background = "white";
     }, 1000);
 }
+
+const checkWin = () => {
+    console.log("Win state is:", win);
+}
+
+checkWin();
 
 const updateScoreDisplay = () => {scoreDisplay.innerHTML = score;}
 const updateBlastCountDisplay = () => {blastCountDisplay.innerHTML = blastCount;}

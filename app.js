@@ -95,6 +95,14 @@ const activateBlast = () => {
         
         let tilesPerRow = tiles.length/countRows();
 
+        // up
+        for(let i =1 ; i <= blastRange; i++) {
+            let newTileIndex = tileIndex - tilesPerRow;
+            if(newTileIndex > 0) tiles[newTileIndex].style.background = "orange";
+            console.log("tileIndex:", tileIndex);
+            console.log("newTileIndex:", newTileIndex);
+        }
+
         // down
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex + tilesPerRow;
@@ -102,6 +110,7 @@ const activateBlast = () => {
             console.log("tileIndex:", tileIndex);
             console.log("newTileIndex:", newTileIndex);
         }
+
         
 
         for(let i = 1; i < blastRange; i++) {

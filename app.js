@@ -107,8 +107,9 @@ const activateBlast = () => {
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex - tilesPerRow;
             if(newTileIndex > 0) {
-                tiles[newTileIndex].style.background = "orange";
-                checkTileForEnemy(tiles[newTileIndex]);
+                // tiles[newTileIndex].style.background = "orange";
+                // checkTileForEnemy(tiles[newTileIndex]);
+                blastEffect(tiles[newTileIndex]);
             }
         }
 
@@ -116,8 +117,9 @@ const activateBlast = () => {
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex + tilesPerRow;
             if(newTileIndex < tiles.length) {
-                tiles[newTileIndex].style.background = "orange";
-                checkTileForEnemy(tiles[newTileIndex]);
+                // tiles[newTileIndex].style.background = "orange";
+                // checkTileForEnemy(tiles[newTileIndex]);
+                blastEffect(tiles[newTileIndex]);
             }
         }
 
@@ -125,8 +127,9 @@ const activateBlast = () => {
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex + i;
             if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {
-                tiles[newTileIndex].style.background = "orange";
-                checkTileForEnemy(tiles[newTileIndex]);
+                // tiles[newTileIndex].style.background = "orange";
+                // checkTileForEnemy(tiles[newTileIndex]);
+                blastEffect(tiles[newTileIndex]);
             }
         }
 

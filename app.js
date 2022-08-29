@@ -12,20 +12,15 @@ let tiles = document.querySelectorAll(".tile");
 document.querySelectorAll(".tile").forEach(occurence => {
     occurence.addEventListener('click', (e) => {
         // console.log(e.target); // .target is important
-
-        // add a way to see if there's an enemy there
-        // checkTile(e);
+ 
+        // checkTile(e); // add a way to see if there's an enemy there
 
         if(e.target.innerHTML !== "Enemy") {
             e.target.style.background = "black";
             addBlastCount();
             updateBlastCountDisplay();
         }
-        // e.target.style.background = "black";
-        
-        // score++;
-        // updateScoreDisplay();
-        
+
         // e.target.nextSibling.style.background = "red";
         // console.log("Next sibling", e.target.nextSibling);
 
@@ -54,10 +49,6 @@ const checkTile = (e) => {
     else alert("Nothing on this tile.");
 }
 
-// tiles.forEach(occurence => {
-//     occurence.addEventListener('click', checkTile(e));
-// })
-
 // When player clicks on a tile:
     //  If there's nothing
     //      Add a "Blast"
@@ -65,17 +56,6 @@ const checkTile = (e) => {
     //  If there's an enemy or blast or blast effect
     //      Do nothing or (subtract from score or add to blast counter or both)
 const setBlast = () => {
-    // console.log(event.currentTarget);
-    
-    // console.log("Tile index is:", tiles.indexOf(event.currentTarget)); // doesn't work
-    // console.log("Tile index is:", tiles.findIndex(event.currentTarget)); // also doesn't work
-    
-    console.log("Target:", event.target);
-    console.log("This is:", this);
-    console.log("This event is:", this.event);
-    console.log("This Event is:", this.Event);
-    
-    // setTimeout(activateBlast(), 5000); // doesn't work, it would immediately call method
     // activateBlast();
     // this way works
     /*
@@ -101,16 +81,8 @@ const activateBlast = () => {
         i++;
         if(i>tiles.length) {tileIndex = "Error: Not found"};
     }
-    
-    setTimeout(function(t = tileClickedOn) {
-        // console.log("Hello blast!");
-        // this.target.style.background = "orange"; // cannot read properties of undefined (reading 'style')
-        // this.event.target.style.background = "orange"; // doesn't work, target is undefined
-        // console.log("Inside setTimeout", this.event.target); // doesn't work, can't read properties of undefined (reading target)
-        // console.timeEnd();
-        // console.log("Inside setTimeout". tile); // undefined
-        //console.log("Inside setTimeout", testAgain); // testAgain is undefined
-        // console.log("Inside setTimeout", x) // WORKS
+
+    setTimeout(function(t = tileClickedOn) { // console.log("Inside setTimeout", x) // WORKS
         t.style.background = "orange";
     }, 2500)
     // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()
@@ -123,8 +95,6 @@ const blastCheck = () => {
     console.log("Blast check");
 }
 
-// document.getElementsByClassName("tile").getAttribute("onclick").alert("Test");
-
 const updateScoreDisplay = () => {scoreDisplay.innerHTML = score;}
 const updateBlastCountDisplay = () => {blastCountDisplay.innerHTML = blastCount;}
 const addBlastCount = () => {blastCount++;}
@@ -134,4 +104,10 @@ const countTiles = () => {return document.getElementsByClassName("tile").length;
 
 /*
 tiles[0].style.background = "black"; // one way to change the style of something in an array
+document.getElementsByClassName("tile").getAttribute("onclick").alert("Test");
+    console.log(event.currentTarget); // inside setBlast()
+    console.log("Target:", event.target); // inside setBlast()
+    console.log("This is:", this); // inside setBlast()
+    console.log("This event is:", this.event); // inside setBlast()
+    console.log("This Event is:", this.Event); // inside setBlast()
 */

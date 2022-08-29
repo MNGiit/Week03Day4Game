@@ -146,6 +146,10 @@ const activateBlast = () => {
 const blastEffect = (t) => {
     t.style.background = "orange";
     checkTileForEnemy(t);
+    setTimeout(function(r = t) {
+        console.log("Reset tile");
+        r.style.background = "white";
+    }, 1000);
 }
 
 const blastCheck = () => {

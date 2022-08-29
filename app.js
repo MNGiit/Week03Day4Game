@@ -97,29 +97,39 @@ const activateBlast = () => {
         // up
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex - (tilesPerRow * i);
-            if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
-            else if(newTileIndex > 0) {blastEffect(tiles[newTileIndex]);}
+            // if(!tiles[newTileIndex]) i = blastRange * 2;
+            if(newTileIndex <= tiles.length-1 && newTileIndex >= 0) {
+                // console.log("Condition is:", tiles[newTileIndex])
+                if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
+                else if(newTileIndex > 0) {blastEffect(tiles[newTileIndex]);}
+            }
         }
 
         // down
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex + (tilesPerRow * i);
-            if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
-            else if(newTileIndex < tiles.length) {blastEffect(tiles[newTileIndex]);}
+            if(newTileIndex <= tiles.length-1 && newTileIndex >= 0) {
+                if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
+                else if(newTileIndex < tiles.length) {blastEffect(tiles[newTileIndex]);}
+            }
         }
 
         // right
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex + i;
-            if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
-            else if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
+            if(newTileIndex <= tiles.length-1 && newTileIndex >= 0) {
+                if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
+                else if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}         
+            }
         }
 
         // left
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex - i;
-            if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
-            else if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
+            if(newTileIndex <= tiles.length-1 && newTileIndex >= 0) {
+                if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
+                else if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
+            }
         }
     }, 50)
     // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()

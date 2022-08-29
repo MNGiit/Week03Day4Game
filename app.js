@@ -99,8 +99,8 @@ const activateBlast = () => {
     // console.log("Tiles.index/Tiles in row using Math.floor", Math.floor((tileIndex+1)/8));
     
     setTimeout(function(t = tileClickedOn) { // console.log("Inside setTimeout", x) // WORKS
-        t.style.background = "orange"; // Origin
-        
+        // t.style.background = "orange"; // Origin
+        blastEffect(t); // Origin
         let tilesPerRow = tiles.length/countRows();
 
         // up

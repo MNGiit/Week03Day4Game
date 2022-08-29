@@ -87,16 +87,31 @@ const activateBlast = () => {
         if(i>tiles.length) {tileIndex = "Error: Not found"};
     }
 
-    // console.log("tiles.length / tiles in row:", (tileIndex+1)/8);
-    console.log("Tiles.index/ Tiles in row using Math.floor", Math.floor((tileIndex+1)/8));
+    // console.log("tiles.length/tiles in row:", (tileIndex+1)/8);
+    // console.log("Tiles.index/Tiles in row using Math.floor", Math.floor((tileIndex+1)/8));
     
     setTimeout(function(t = tileClickedOn) { // console.log("Inside setTimeout", x) // WORKS
         t.style.background = "orange"; // Origin
         
-        for(let i = 1; i < blastRange; i++) {
+        let tilesPerRow = tiles.length/countRows();
 
+        // down
+        for(let i =1 ; i <= blastRange; i++) {
+            let newTileIndex = tileIndex + tilesPerRow;
+            if(newTileIndex < tiles.length) tiles[newTileIndex].style.background = "orange";
+            console.log("tileIndex:", tileIndex);
+            console.log("newTileIndex:", newTileIndex);
         }
-    }, 2500)
+        
+
+        for(let i = 1; i < blastRange; i++) {
+            if(Math.floor((tileIndex+1)/8) === Math.floor((tileIndex+1+i)/8)) {
+                console.log("tileIndex + 1:", Math.floor((tileIndex+1)));
+                console.log("i:", i);
+                console.log("Can continue effect");
+            }
+        }
+    }, 50)
     // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()
 }
 

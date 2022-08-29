@@ -110,18 +110,22 @@ const setBlast = () => {
 
 const activateBlast = () => {
     // console.time();
-    console.log("Inside activateBlast()", this.event);
-    let testAgain = this.event;
-    setTimeout(function(x = testAgain) {
-        console.log("Hello blast!");
+    // console.log("Inside activateBlast()", this.event);
+    // console.log(tiles[79]);
+    // console.log("target === tiles[49]?", this.event.target === tiles[49])
+    // console.log("target === tiles[79]?", this.event.target === tiles[79])
+    let tileClickedOn = this.event.target;
+    // console.log(tiles);
+    setTimeout(function(t = tileClickedOn) {
+        // console.log("Hello blast!");
         // this.target.style.background = "orange"; // cannot read properties of undefined (reading 'style')
         // this.event.target.style.background = "orange"; // doesn't work, target is undefined
         // console.log("Inside setTimeout", this.event.target); // doesn't work, can't read properties of undefined (reading target)
         // console.timeEnd();
         // console.log("Inside setTimeout". tile); // undefined
         //console.log("Inside setTimeout", testAgain); // testAgain is undefined
-        console.log("Inside setTimeout", x) // WORKS
-        x.target.style.background = "orange";
+        // console.log("Inside setTimeout", x) // WORKS
+        t.style.background = "orange";
     }, 2500)
     // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()
 }

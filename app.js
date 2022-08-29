@@ -1,7 +1,7 @@
 let score = 0;
 let scoreDisplay = document.querySelector(".scoreContainer p"); // .scoreContainer is the class, p is the element tag
 
-let blastRange = 1;
+let blastRange = 2;
 let blastCount = 0;
 let blastCountDisplay = document.querySelector(".blastCountContainer p"); // .blastCountContainer is the class, p is the element tag
 
@@ -96,14 +96,14 @@ const activateBlast = () => {
 
         // up
         for(let i =1 ; i <= blastRange; i++) {
-            let newTileIndex = tileIndex - tilesPerRow;
+            let newTileIndex = tileIndex - (tilesPerRow * i);
             if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
             else if(newTileIndex > 0) {blastEffect(tiles[newTileIndex]);}
         }
 
         // down
         for(let i =1 ; i <= blastRange; i++) {
-            let newTileIndex = tileIndex + tilesPerRow;
+            let newTileIndex = tileIndex + (tilesPerRow * i);
             if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
             else if(newTileIndex < tiles.length) {blastEffect(tiles[newTileIndex]);}
         }

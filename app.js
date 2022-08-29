@@ -56,7 +56,10 @@ const checkTile = (e) => {
 }
 
 const checkTileForEnemy = (t) => {
-    if(t.innerHTML === "Enemy") score++;
+    if(t.innerHTML === "Enemy") {
+        score++;
+        updateScoreDisplay();
+    }
 }
 
 // When player clicks on a tile:

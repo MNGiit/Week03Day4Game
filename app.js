@@ -55,6 +55,10 @@ const checkTile = (e) => {
     else alert("Nothing on this tile.");
 }
 
+const checkTileForEnemy = (t) => {
+    if(t.innerHTML === "Enemy") score++;
+}
+
 // When player clicks on a tile:
     //  If there's nothing
     //      Add a "Blast"
@@ -99,7 +103,11 @@ const activateBlast = () => {
         // up
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex - tilesPerRow;
-            if(newTileIndex > 0) tiles[newTileIndex].style.background = "orange";
+            if(newTileIndex > 0) {
+                tiles[newTileIndex].style.background = "orange";
+                checkTileForEnemy(tiles[newTileIndex]);
+                console.log(score);
+            }
         }
 
         // down

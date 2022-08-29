@@ -11,6 +11,7 @@ let tiles = document.querySelectorAll(".tile");
 let rows = document.querySelectorAll(".row");
 
 console.log(rows);
+console.log(tiles[0].parentNode);
 
 document.querySelectorAll(".tile").forEach(occurence => {
     occurence.addEventListener('click', (e) => {
@@ -117,10 +118,11 @@ const activateBlast = () => {
         // right
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex + i;
-            console.log("newTileIndex:", tiles[newTileIndex]);
+            if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) tiles[newTileIndex].style.background = "orange";
+            // console.log("newTileIndex:", tiles[newTileIndex]);
             // let tileRow = document.querySelector(tiles[newTileIndex]); // doesn't work
             // console.log(tileRow); //
-            console.log(tiles);
+            // console.log(tiles);
         }
         
 

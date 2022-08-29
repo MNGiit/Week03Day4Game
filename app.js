@@ -5,7 +5,7 @@ let blastRange = 1;
 let blastCount = 0;
 let blastCountDisplay = document.querySelector(".blastCountContainer p"); // .blastCountContainer is the class, p is the element tag
 
-
+let barriers = 20;
 let enemies = 3;
 let tiles = document.querySelectorAll(".tile");
 
@@ -39,9 +39,14 @@ const setEnemies = () => {
 }
 
 const setBarriers = () => {
-    console.log("setBarriers() should put a barrier on the tile");
+    // console.log("setBarriers() should put a barrier on the tile");
+    for(let i = 0; i < barriers; i++) {
+        let t = Math.floor(Math.random() * tiles.length);
+        if(tiles[t].innerHTML !== "Enemy" || tiles[t].innerHTML !== "Barrier") tiles[t].innerHTML = "Barrier";
+    }
 }
 
+setBarriers();
 setEnemies();
 
 const checkTile = (e) => {

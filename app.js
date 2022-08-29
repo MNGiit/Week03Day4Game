@@ -124,7 +124,12 @@ const activateBlast = () => {
             // console.log(tileRow); //
             // console.log(tiles);
         }
-        
+
+        // left
+        for(let i = 1; i <= blastRange; i++) {
+            let newTileIndex = tileIndex - i;
+            if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) tiles[newTileIndex].style.background = "orange";
+        }
 
         for(let i = 1; i < blastRange; i++) {
             if(Math.floor((tileIndex+1)/8) === Math.floor((tileIndex+1+i)/8)) {

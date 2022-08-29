@@ -134,12 +134,18 @@ const activateBlast = () => {
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex - i;
             if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {
-                tiles[newTileIndex].style.background = "orange";
-                checkTileForEnemy(tiles[newTileIndex]);
+                // tiles[newTileIndex].style.background = "orange";
+                // checkTileForEnemy(tiles[newTileIndex]);
+                blastEffect(tiles[newTileIndex]);
             }
         }
     }, 50)
     // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()
+}
+
+const blastEffect = (t) => {
+    t.style.background = "orange";
+    checkTileForEnemy(t);
 }
 
 const blastCheck = () => {

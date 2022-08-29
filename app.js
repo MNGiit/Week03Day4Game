@@ -34,7 +34,7 @@ document.querySelectorAll(".tile").forEach(occurence => {
 const setEnemies = () => {
     for(let i = 0; i < enemies; i++) {
         let t = Math.floor(Math.random() * tiles.length);
-        if(tiles[t].innerHTML !== "Enemy") tiles[t].innerHTML = "Enemy";
+        if(tiles[t].innerHTML !== "Enemy" && tiles[t].innerHTML !== "Barrier") tiles[t].innerHTML = "Enemy";
     }
 }
 

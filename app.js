@@ -146,6 +146,14 @@ const blastEffect = (t) => {
 
 const checkWin = () => {
     console.log("Win state is:", win);
+    let enemyCount = 0;
+    for(let i = 0; i < tiles.length; i++) {
+        if(tiles[i].innerHTML === "Enemy") enemyCount++;
+    }
+    // if(enemyCount > 0) win = false;
+    enemyCount > 0 ? win = false : win = true;
+    console.log("Enemy count:", enemyCount);
+    console.log("Win state:", win)
 }
 
 checkWin();

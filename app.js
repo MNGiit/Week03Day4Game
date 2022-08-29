@@ -109,7 +109,6 @@ const activateBlast = () => {
             if(newTileIndex > 0) {
                 tiles[newTileIndex].style.background = "orange";
                 checkTileForEnemy(tiles[newTileIndex]);
-                console.log(score);
             }
         }
 
@@ -119,7 +118,6 @@ const activateBlast = () => {
             if(newTileIndex < tiles.length) {
                 tiles[newTileIndex].style.background = "orange";
                 checkTileForEnemy(tiles[newTileIndex]);
-                console.log(score);
             }
         }
 
@@ -129,7 +127,6 @@ const activateBlast = () => {
             if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {
                 tiles[newTileIndex].style.background = "orange";
                 checkTileForEnemy(tiles[newTileIndex]);
-                console.log(score);
             }
         }
 
@@ -139,7 +136,6 @@ const activateBlast = () => {
             if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {
                 tiles[newTileIndex].style.background = "orange";
                 checkTileForEnemy(tiles[newTileIndex]);
-                console.log(score);
             }
         }
     }, 50)

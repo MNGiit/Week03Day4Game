@@ -65,8 +65,6 @@ const checkTile = (e) => {
     //  If there's an enemy or blast or blast effect
     //      Do nothing or (subtract from score or add to blast counter or both)
 const setBlast = () => {
-    // console.log("Hello console! This is", this);
-    
     // console.log(event.currentTarget);
     
     // console.log("Tile index is:", tiles.indexOf(event.currentTarget)); // doesn't work
@@ -94,6 +92,18 @@ const activateBlast = () => {
     // console.log("target === tiles[49]?", this.event.target === tiles[49])
     // console.log("target === tiles[79]?", this.event.target === tiles[79])
     let tileClickedOn = this.event.target;
+    // console.log(tiles.indexOf(tileClickedOn));
+    // console.log(tiles.find(tileClickedOn));
+    let tileIndex;
+    let i = 0;
+    while(!tileIndex) {
+        if(tiles[i] === tileClickedOn) {
+            tileIndex = tiles[i];
+            console.log("Index is:", i);
+        }
+        i++;
+    }
+    console.log(tileIndex);
     // console.log(tiles);
     setTimeout(function(t = tileClickedOn) {
         // console.log("Hello blast!");

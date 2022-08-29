@@ -87,8 +87,15 @@ const activateBlast = () => {
         if(i>tiles.length) {tileIndex = "Error: Not found"};
     }
 
+    // console.log("tiles.length / tiles in row:", (tileIndex+1)/8);
+    console.log("Tiles.index/ Tiles in row using Math.floor", Math.floor((tileIndex+1)/8));
+    
     setTimeout(function(t = tileClickedOn) { // console.log("Inside setTimeout", x) // WORKS
-        t.style.background = "orange";
+        t.style.background = "orange"; // Origin
+        
+        for(let i = 1; i < blastRange; i++) {
+
+        }
     }, 2500)
     // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()
 }

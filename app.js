@@ -113,19 +113,31 @@ const activateBlast = () => {
         // down
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex + tilesPerRow;
-            if(newTileIndex < tiles.length) tiles[newTileIndex].style.background = "orange";
+            if(newTileIndex < tiles.length) {
+                tiles[newTileIndex].style.background = "orange";
+                checkTileForEnemy(tiles[newTileIndex]);
+                console.log(score);
+            }
         }
 
         // right
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex + i;
-            if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) tiles[newTileIndex].style.background = "orange";
+            if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {
+                tiles[newTileIndex].style.background = "orange";
+                checkTileForEnemy(tiles[newTileIndex]);
+                console.log(score);
+            }
         }
 
         // left
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex - i;
-            if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) tiles[newTileIndex].style.background = "orange";
+            if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {
+                tiles[newTileIndex].style.background = "orange";
+                checkTileForEnemy(tiles[newTileIndex]);
+                console.log(score);
+            }
         }
     }, 50)
     // console.timeEnd(); // doesn't work as intended, call it it inside setTimeout()

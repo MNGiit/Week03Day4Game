@@ -105,15 +105,27 @@ const activateBlast = () => {
         let tilesPerRow = tiles.length/countRows();
 
         // up
+        // for(let i =1 ; i <= blastRange; i++) {
+        //     let newTileIndex = tileIndex - tilesPerRow;
+        //     if(newTileIndex > 0) {blastEffect(tiles[newTileIndex]);}
+        // }
+        // up
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex - tilesPerRow;
-            if(newTileIndex > 0) {blastEffect(tiles[newTileIndex]);}
+            if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
+            else if(newTileIndex > 0) {blastEffect(tiles[newTileIndex]);}
         }
 
         // down
+        // for(let i =1 ; i <= blastRange; i++) {
+        //     let newTileIndex = tileIndex + tilesPerRow;
+        //     if(newTileIndex < tiles.length) {blastEffect(tiles[newTileIndex]);}
+        // }
+        // down
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex + tilesPerRow;
-            if(newTileIndex < tiles.length) {blastEffect(tiles[newTileIndex]);}
+            if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
+            else if(newTileIndex < tiles.length) {blastEffect(tiles[newTileIndex]);}
         }
 
         // right

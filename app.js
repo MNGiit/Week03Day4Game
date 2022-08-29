@@ -97,14 +97,11 @@ const activateBlast = () => {
     let tileIndex;
     let i = 0;
     while(!tileIndex) {
-        if(tiles[i] === tileClickedOn) {
-            tileIndex = tiles[i];
-            console.log("Index is:", i);
-        }
+        if(tiles[i] === tileClickedOn) {tileIndex = i;}
         i++;
+        if(i>tiles.length) {tileIndex = "Error: Not found"};
     }
-    console.log(tileIndex);
-    // console.log(tiles);
+    
     setTimeout(function(t = tileClickedOn) {
         // console.log("Hello blast!");
         // this.target.style.background = "orange"; // cannot read properties of undefined (reading 'style')

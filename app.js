@@ -13,7 +13,6 @@ let rows = document.querySelectorAll(".row");
 document.querySelectorAll(".tile").forEach(occurence => {
     occurence.addEventListener('click', (e) => {
         // console.log(e.target); // .target is important
- 
         // checkTile(e); // add a way to see if there's an enemy there
 
         if(e.target.innerHTML !== "Enemy") {
@@ -21,16 +20,8 @@ document.querySelectorAll(".tile").forEach(occurence => {
             addBlastCount();
             updateBlastCountDisplay();
         }
-
-        // e.target.nextSibling.style.background = "red";
-        // console.log("Next sibling", e.target.nextSibling);
-
-        // let nextTile = tiles.indexOf(e.target); // error?
-        // console.log(nextTile);
     });
 });
-
-// Game might use "Blast used." Player should try to defeat the enemies with the least amount of blasts.
 
 const setEnemies = () => {
     for(let i = 0; i < enemies; i++) {
@@ -100,15 +91,9 @@ const activateBlast = () => {
     // console.log("Tiles.index/Tiles in row using Math.floor", Math.floor((tileIndex+1)/8));
     
     setTimeout(function(t = tileClickedOn) { // console.log("Inside setTimeout", x) // WORKS
-        // t.style.background = "orange"; // Origin
         blastEffect(t); // Origin
         let tilesPerRow = tiles.length/countRows();
 
-        // up
-        // for(let i =1 ; i <= blastRange; i++) {
-        //     let newTileIndex = tileIndex - tilesPerRow;
-        //     if(newTileIndex > 0) {blastEffect(tiles[newTileIndex]);}
-        // }
         // up
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex - tilesPerRow;
@@ -117,11 +102,6 @@ const activateBlast = () => {
         }
 
         // down
-        // for(let i =1 ; i <= blastRange; i++) {
-        //     let newTileIndex = tileIndex + tilesPerRow;
-        //     if(newTileIndex < tiles.length) {blastEffect(tiles[newTileIndex]);}
-        // }
-        // down
         for(let i =1 ; i <= blastRange; i++) {
             let newTileIndex = tileIndex + tilesPerRow;
             if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
@@ -129,22 +109,12 @@ const activateBlast = () => {
         }
 
         // right
-        // for(let i = 1; i <= blastRange; i++) {
-        //     let newTileIndex = tileIndex + i;
-        //     if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
-        // }
-        // right
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex + i;
             if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
             else if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
         }
 
-        // left
-        // for(let i = 1; i <= blastRange; i++) {
-        //     let newTileIndex = tileIndex - i;
-        //     if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
-        // }
         // left
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex - i;
@@ -163,13 +133,6 @@ const blastEffect = (t) => {
     }, 1000);
 }
 
-const blastCheck = () => {
-    //  if tile has something on it
-    //      remove that something
-    //      add point to score
-    console.log("Blast check");
-}
-
 const updateScoreDisplay = () => {scoreDisplay.innerHTML = score;}
 const updateBlastCountDisplay = () => {blastCountDisplay.innerHTML = blastCount;}
 const addBlastCount = () => {blastCount++;}
@@ -178,6 +141,7 @@ const countRows = () => {return document.getElementsByClassName("row").length;}
 const countTiles = () => {return document.getElementsByClassName("tile").length;}
 
 /*
+Game might use "Blast used." Player should try to defeat the enemies with the least amount of blasts.
 tiles[0].style.background = "black"; // one way to change the style of something in an array
 console.log(tiles[0].parentNode); // it's possible to get parentNode like this
 document.getElementsByClassName("tile").getAttribute("onclick").alert("Test");

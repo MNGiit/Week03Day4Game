@@ -117,9 +117,15 @@ const activateBlast = () => {
         }
 
         // right
+        // for(let i = 1; i <= blastRange; i++) {
+        //     let newTileIndex = tileIndex + i;
+        //     if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
+        // }
+        // right
         for(let i = 1; i <= blastRange; i++) {
             let newTileIndex = tileIndex + i;
-            if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
+            if(tiles[newTileIndex].innerHTML === "Barrier") i = blastRange *2;
+            else if(tiles[newTileIndex].parentNode === tiles[tileIndex].parentNode) {blastEffect(tiles[newTileIndex]);}
         }
 
         // left

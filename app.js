@@ -104,7 +104,7 @@ const setBlast = () => {
         activateBlast();
     }, 5000);
     */
-    activateBlast();
+   if(this.event.target.innerHTML !== "Enemy") activateBlast();
     // console.timeEnd();
 }
 

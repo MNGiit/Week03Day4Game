@@ -24,3 +24,7 @@
     width: 50px;
     text-align: center;
 }
+
+.winModal {
+    display: none;
+}

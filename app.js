@@ -153,6 +153,7 @@ const checkWin = () => {
     }
     // if(enemyCount > 0) win = false;
     enemyCount > 0 ? win = false : win = true;
+    if(win) alert("Congrats, you won!");
     console.log("Enemy count:", enemyCount);
     console.log("Win state:", win)
 }
